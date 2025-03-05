@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetooth Connection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #00274d;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 70%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #device-list {
+            margin-top: 20px;
+        }
+        #device-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #device-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        #device-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bluetooth Connection</h1>
+    </header>
+    <div class="container">
+        <button id="connect-button">Connect to Bluetooth Device</button>
+        <div id="device-list">
+            <h2>Available Devices</h2>
+            <ul id="devices"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('connect-button').addEventListener('click', async () => {
+            try {
+                const device = await navigator.bluetooth.requestDevice({
+                    acceptAllDevices: true, // Changed to accept all devices
+                    optionalServices: ['battery_service'] // Using optionalServices instead of filters
+                });
+
+                if (!device) {
+                    console.error("No device selected.");
+                    return;
+                }
+
+                console.log('Device selected:', device);
+
+                if (!device.gatt) {
+                    console.error("GATT is not supported by this device.");
+                    return;
+                }
+
+                const server = await device.gatt.connect();
+                console.log('Connected to GATT Server:', server);
+
+                // Clear previous entries
+                const deviceList = document.getElementById('devices');
+                deviceList.innerHTML = '';
+
+                // Display device info
+                const listItem = document.createElement('li');
+                listItem.textContent = `Device: ${device.name || "Unknown"} (${device.id})`;
+                deviceList.appendChild(listItem);
+
+                // Handle disconnection
+                device.addEventListener('gattserverdisconnected', () => {
+                    console.log('Disconnected from GATT Server');
+                });
+
+            } catch (error) {
+                console.error('Error connecting to Bluetooth device:', error);
+            }
+        });
+    </script>
+</body>
+</html>

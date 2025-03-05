@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Regular Routes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #00274d;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #fff;
+        }
+        h2 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background: #0056b3;
+        }
+        .route-list {
+            margin-top: 20px;
+        }
+        .route-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #f9f9f9;
+            border-left: 5px solid #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Regular Routes</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>Add a Regular Route</h2>
+            <form id="route-form">
+                <div class="form-group">
+                    <label for="route-name">Route Name:</label>
+                    <input type="text" id="route-name" name="route-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="route-description">Route Description:</label>
+                    <input type="text" id="route-description" name="route-description" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Add Route</button>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <h2>My Routes</h2>
+            <div id="route-list" class="route-list">
+                <!-- Routes will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('route-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get route details
+            const routeName = document.getElementById('route-name').value;
+            const routeDescription = document.getElementById('route-description').value;
+
+            // Create a new route item
+            const routeItem = document.createElement('div');
+            routeItem.className = 'route-item';
+            routeItem.innerHTML = `<h3>${routeName}</h3><p>${routeDescription}</p>`;
+
+            // Add to the route list
+            document.getElementById('route-list').appendChild(routeItem);
+
+            // Clear the form
+            document.getElementById('route-form').reset();
+        });
+    </script>
+</body>
+</html>

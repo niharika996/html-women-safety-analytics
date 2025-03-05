@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Women Safety SOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .sos-alert-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .sos-alert-box h2 {
+            color: #d32f2f; /* Red color for heading */
+        }
+        .sos-alert-box p {
+            color: #555;
+        }
+        #panicButton {
+            background-color: #d32f2f; /* Red color for panic button */
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #panicButton:hover {
+            background-color: #b71c1c; /* Darker red for hover effect */
+        }
+        #alertForm {
+            margin-top: 20px;
+        }
+        #alertForm textarea {
+            width: calc(100% - 20px);
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        #alertForm input[type="submit"] {
+            background-color: #d32f2f; /* Red color for submit button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #alertForm input[type="submit"]:hover {
+            background-color: #b71c1c; /* Darker red for hover effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="sos-alert-box">
+        <h2>SOS Alert</h2>
+        <p>Are you in danger? Press the panic button to send an immediate alert.</p>
+        <button id="panicButton">Panic Button</button>
+        <form id="alertForm" action="send_alert.php" method="post" style="display: none;">
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
+            <textarea id="description" name="description" placeholder="Briefly describe the situation"></textarea>
+            <input type="submit" value="Send Alert">
+        </form>
+    </div>
+
+    <script>
+        // Get user's location
+        navigator.geolocation.getCurrentPosition(function(position) {
+            document.getElementById("latitude").value = position.coords.latitude;
+            document.getElementById("longitude").value = position.coords.longitude;
+        });
+
+        // Handle panic button click
+        document.getElementById("panicButton").addEventListener("click", function() {
+            document.getElementById("alertForm").style.display = "block";
+        });
+    </script>
+</body>
+</html>

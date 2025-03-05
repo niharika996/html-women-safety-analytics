@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Hotspots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+            border-radius: 8px;
+        }
+        .info {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .info p {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Incident Hotspots</h1>
+        <div id="map"></div>
+        <div class="info">
+            <p>Use the map to view areas with reported incidents. Click on the markers for more details.</p>
+        </div>
+    </div>
+
+    <script>
+        function initMap() {
+            // Map options
+            const options = {
+                zoom: 12,
+                center: { lat: 40.7128, lng: -74.0060 } // Example coordinates (New York City)
+            };
+
+            // Create a new map
+            const map = new google.maps.Map(document.getElementById('map'), options);
+
+            // Incident hotspots (example data)
+            const hotspots = [
+                { lat: 40.730610, lng: -73.935242, description: 'Incident 1: Safety concern' },
+                { lat: 40.712776, lng: -74.005974, description: 'Incident 2: Reported theft' },
+                { lat: 40.7580, lng: -73.9855, description: 'Incident 3: Assault reported' }
+            ];
+
+            // Add markers to the map
+            hotspots.forEach(hotspot => {
+                const marker = new google.maps.Marker({
+                    position: { lat: hotspot.lat, lng: hotspot.lng },
+                    map: map,
+                    title: hotspot.description
+                });
+
+                // Add an info window to the marker
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<div><strong>Incident:</strong> ${hotspot.description}</div>`
+                });
+
+                marker.addListener('click', function() {
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
+    </script>
+
+    <!-- Google Maps API script -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+        async
+        defer
+    ></script>
+</body>
+</html>

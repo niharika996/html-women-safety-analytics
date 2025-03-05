@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety Analytics</title>
+
+    <style>
+        /* Apply dark blue background color to the whole page */
+        body {
+            background-color: #00274d; /* Dark blue color */
+            color: #ffffff; /* Text color for better readability */
+            font-family: Arial, sans-serif; /* Font style */
+            margin: 0;
+            padding: 20px; /* Add some padding */
+            position: relative; /* Required for positioning the buttons */
+        }
+
+        h2 {
+            /* margin-top: 15px; */
+            font-size: 50px; /* Adjust size as needed */
+            margin: 0;
+
+            
+        }
+
+        .text-content {
+            font-size: 16px;
+            margin-bottom: 80px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #fa2222;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 10px; /* Add some space between buttons */
+            margin-bottom: 50px;
+        }
+
+        .button1 {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #f8b822;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 10px; /* Add some space between buttons */
+            margin-bottom: 50px;
+        }
+
+        .search-form {
+            margin-top: 50px;
+        }
+
+        .search-form input {
+            padding: 10px;
+            width: 300px; /* Adjust the width as needed */
+            box-sizing: border-box;
+        }
+
+        /* Style for the hamburger menu button */
+        .hamburger-menu {
+            position: absolute;
+            top: 20px;
+            right: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        /* Style for the navigation menu */
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #00274d;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid #007bff;
+        }
+
+        .nav-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-form label {
+            margin-top: 10px;
+        }
+
+        .alert-box {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border: 1px solid #007bff;
+        }
+
+        
+    
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap onto multiple lines */
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 10px; /* Adjusts space between buttons */
+    padding: 20px; /* Adds some padding around the container */
+    
+}
+
+.button-container button {
+    background-color: peachpuff; /* Button background color */
+    color: rgb(10, 10, 10); /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded corners */
+    padding: 10px 20px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size */
+    /* margin-top: 15px; */
+}
+
+.button-container button:hover {
+    background-color: #3b5070; /* Darker background on hover */
+}
+
+
+        /* Container for buttons */
+        .button-container {
+            display: flex;
+            gap: 10px; /* Space between button*/
+            margin-top: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            gap: 15px; /* Space between images */
+            flex-wrap: wrap; /* Wrap images to the next line if needed */
+            justify-content: space-between; /* Distribute space evenly */
+            margin-top: 20px; /* Add margin top for spacing */
+        }
+
+        .image-container img {
+            max-width: 24%; /* Adjust width to ensure images fit in screen */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sea{
+            text-align:right;
+            margin-top: 20px;
+            /* margin-left: 50px ; */
+            margin-right: 100px;
+            /* text-align: center; */
+        }
+        .logo{
+            width: 1px;
+            height: 1px;
+            /* margin-bottom: 10px; */
+            /* margin-left: 300px; */
+            /* margin-top: 50px; */
+            
+        }
+    </style>
+
+</head>
+<body>
+    <!-- <div class="logo">
+      <img src="C:\Users\NIHARIKA\Documents\logo.png" id="img" style="width: 45px; height: 45px;">
+    </div>  -->
+    <form class="sea"  action="/search" method="get">
+       <input type="search" name="query" placeholder="search..." aria-label="search">
+       <button type="submit">search</button>
+    </form>
+
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger-menu" id="hamburgerBtn">&#9776;</div>
+
+    <!-- Navigation Menu -->
+    <div class="nav-menu" id="navMenu">
+        <a href="./public/loginfinal.html">Login</a>
+        <a href="./public/safety.html">Safety Tips</a>
+        <a href="./public/news1.html">News and updates</a>        
+        <a href="./public/share.html">Share Your Story</a>
+        <a href="./public/legal.html">Legal Information</a>
+        <a href="./public/private.html">Privacy Policy</a>
+        <a href="./public/community.html">Community Guidelines</a>
+        <a href="./public/contact.html">Contact Us</a>
+        <a href="./public/faq.html">FAQ</a>
+    </div>
+
+    <h2>Welcome to</h2>
+    <h2>Her Safetynet<br>Women Safety Wing</h2>
+    <p class="text-content">Standing alongside every woman to <strong>empower</strong> and <strong>encourage</strong></p>
+    
+    <div class="image-container">
+        <img src="https://www.ritzmagazine.in/wp-content/uploads/2019/01/women-safety-zones.jpg" id="img" style="width: 1500px; height:300px;">
+        <img src="https://w0.peakpx.com/wallpaper/667/784/HD-wallpaper-group-of-people-walking-on-pedestrian-lane.jpg" id="img" style="width: 300px; height: 300px;">
+        <img src="https://www.refinery29.com/images/10651985.jpg?crop=40:21" id="img" style="width: 300px; height: 300px;">
+        <img src="https://thumbs.dreamstime.com/b/lonely-streets-new-york-image-was-taken-traveling-ny-december-144154690.jpg" id="img" style="width: 300px; height: 300px;">
+    </div>
+    
+    <!-- Existing Buttons -->
+    <a class="button" href="./public/sos3.html">SOS Alert</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="button" href="./public/report3.html">Report</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="button" href="https://wa.me/918712656858" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> 8712650858</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="button1" href="./public/gender2.html">Gender Distribution</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="button1" href="./public/lone1.html">Lone Women Detection</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="button1" href="./public/inci.html">Incident Hotspot</a>
+
+   
+    <div class="button-container">
+        <a href="./public/connect.html"><button>DEVICE SUPPORT</button></a>
+        <a href="./public/hotlines1.html"><button>HOTLINES</button></a>
+        <a href="./public/route1.html"><button>REGULAR ROUTES</button></a>
+        <a href="./public/domestic2.html"><button>DOMESTIC VIOLENCE</button> </a>       
+        <a href="./public/cyber1.html"><button>CYBER / PHONE HARASSMENT</button></a>
+        <a href="./public/public1.html"><button>HARASSMENT IN PUBLIC PLACES</button></a>
+        <a href="./public/workplace1.html"><button>WORKPLACE SEXUAL HARASSMENT</button></a>
+        <a href="./public/sreetsexual1.html"><button>STREET SEXUAL HARASSMENT</button></a>
+        <a href="./public/rights1.html"><button>KNOW YOUR RIGHTS</button></a>
+        <a href="./public/trafik1.html"><button>HUMAN TRAFFICKING</button></a>
+        <a href="./public/reportmissing2.html"><button>REPORT MISSING PERSON</button></a>
+    </div>
+
+    <!-- The Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h3>Login</h3>
+            <form class="modal-form">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="other">Other</option>
+                </select>
+                
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required placeholder="Enter your location">
+
+                <button type="submit" style="margin-top: 20px; padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal and buttons
+        var loginModal = document.getElementById("loginModal");
+        var closeModal = document.getElementById("closeModal");
+
+        var hamburgerBtn = document.getElementById("hamburgerBtn");
+        var navMenu = document.getElementById("navMenu");
+
+        // Close the login modal
+        closeModal.onclick = function() {
+            loginModal.style.display = "none";
+        }
+
+        // Close the login modal if clicking outside
+        window.onclick = function(event) {
+            if (event.target == loginModal) {
+                loginModal.style.display = "none";
+            }
+        }
+
+        // Toggle the navigation menu
+        hamburgerBtn.onclick = function() {
+            if (navMenu.style.display === "block") {
+                navMenu.style.display = "none";
+            } else {
+                navMenu.style.display = "block";
+            }
+        }
+
+        // Close the navigation menu if clicking outside
+        window.onclick = function(event) {
+            if (event.target !== hamburgerBtn && event.target !== navMenu && !navMenu.contains(event.target)) {
+                navMenu.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Women Safety App - Human Trafficking Awareness</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         line-height: 1.6;
+         margin: 0;
+         padding: 0;
+         background-color: #f4f4f4;
+         color: #333;
+      }
+
+      h1 {
+         background: #5a2d81;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         margin: 0;
+      }
+
+      section {
+         margin: 20px;
+         padding: 20px;
+         background: #fff;
+         border-radius: 8px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+         color: #5a2d81;
+      }
+
+      ul {
+         list-style: none;
+         padding: 0;
+      }
+
+      ul li {
+         padding: 8px 0;
+         border-bottom: 1px solid #ddd;
+      }
+
+      form {
+         display: flex;
+         flex-direction: column;
+      }
+
+      label {
+         margin: 10px 0 5px;
+         font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      textarea {
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         width: 100%;
+         box-sizing: border-box;
+      }
+
+      textarea {
+         resize: vertical;
+         min-height: 100px;
+      }
+
+      input[type="submit"] {
+         background: #5a2d81;
+         color: #fff;
+         border: none;
+         padding: 10px;
+         border-radius: 4px;
+         cursor: pointer;
+         font-size: 16px;
+         margin-top: 10px;
+      }
+
+      input[type="submit"]:hover {
+         background: #4b1e6c;
+      }
+
+      .box {
+         border: 1px solid #ddd;
+         padding: 15px;
+         border-radius: 8px;
+         background-color: #fafafa;
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+   </style>
+</head>
+<body>
+   <h1>Human Trafficking Awareness</h1>
+   <section id="human-trafficking-info">
+      <h2>What is Human Trafficking?</h2>
+      <p>Human trafficking involves the exploitation of individuals through coercion, force, or deceit. Victims are often subjected to forced labor, sexual exploitation, or other forms of abuse. This illegal trade often involves women and children, who are particularly vulnerable to trafficking.</p>
+      <h2>Signs of Human Trafficking</h2>
+      <ul>
+         <li>Person shows signs of physical abuse or neglect.</li>
+         <li>Person appears to be under control of another individual or is not free to leave their current situation.</li>
+         <li>Person lacks basic necessities, such as food, clothing, or medical care.</li>
+         <li>Person is unable to speak freely and is fearful or hesitant to communicate.</li>
+      </ul>
+      <h2>Legal Framework and Protection</h2>
+      <p>Various laws and international treaties aim to combat human trafficking, including the United Nations Protocol to Prevent, Suppress and Punish Trafficking in Persons, especially Women and Children, and national laws that provide protections and establish penalties for traffickers.</p>
+   </section>
+
+   <section id="emergency-contacts">
+      <h2>Emergency Contacts</h2>
+      <ul>
+         <li>National Human Trafficking Hotline: 1800-XXX-XXXX</li>
+         <li>Local Police Department: 100</li>
+         <li>NGO for Victims of Human Trafficking: 1800-XXX-XXXX</li>
+      </ul>
+   </section>
+
+   <section id="file-complaint">
+      <h2>File a Complaint</h2>
+      <div class="box">
+         <p>If you suspect someone is a victim of human trafficking, please file a complaint using the form below. Your report will be handled confidentially.</p>
+         <form action="submit-complaint.php" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="phone">Your Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <br>
+            <label for="details">Details of the Incident:</label>
+            <textarea id="details" name="details" required></textarea>
+            <br>
+            <input type="submit" value="Submit Complaint">
+         </form>
+      </div>
+   </section>
+
+   <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Women Safety App - Report Missing Person</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         line-height: 1.6;
+         margin: 0;
+         padding: 0;
+         background-color: #f4f4f4;
+         color: #333;
+      }
+
+      h1 {
+         background: #5a2d81;
+         color: #fff;
+         padding: 10px;
+         text-align: center;
+         margin: 0;
+      }
+
+      section {
+         margin: 20px;
+         padding: 20px;
+         background: #fff;
+         border-radius: 8px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         max-width: 800px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+      }
+
+      label {
+         margin: 10px 0 5px;
+         font-weight: bold;
+         text-align: center;
+      }
+
+      input[type="text"],
+      textarea,
+      input[type="datetime-local"] {
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         width: 100%;
+         max-width: 500px;
+         box-sizing: border-box;
+      }
+
+      textarea {
+         resize: vertical;
+         min-height: 100px;
+      }
+
+      input[type="submit"] {
+         background: #5a2d81;
+         color: #fff;
+         border: none;
+         padding: 10px;
+         border-radius: 4px;
+         cursor: pointer;
+         font-size: 16px;
+         margin-top: 10px;
+         width: 100%;
+         max-width: 500px;
+      }
+
+      input[type="submit"]:hover {
+         background: #4b1e6c;
+      }
+
+      #missing-person-report {
+         margin-top: 20px;
+         padding: 10px;
+         background: #e9ecef;
+         border-radius: 4px;
+         text-align: center;
+      }
+   </style>
+</head>
+<body>
+   <section id="report-missing-person">
+      <h1>Report a Missing Person</h1>
+      <form>
+         <label for="name">Name of Missing Person:</label>
+         <input type="text" id="name" name="name" required>
+         <br>
+         <label for="description">Description of Missing Person:</label>
+         <textarea id="description" name="description" required></textarea>
+         <br>
+         <label for="last-seen">Last Seen Location:</label>
+         <input type="text" id="last-seen" name="last-seen" required>
+         <br>
+         <label for="last-seen-time">Last Seen Time:</label>
+         <input type="datetime-local" id="last-seen-time" name="last-seen-time" required>
+         <br>
+         <label for="contact-info">Your Contact Information:</label>
+         <input type="text" id="contact-info" name="contact-info" required>
+         <br>
+         <input type="submit" value="Report Missing Person">
+      </form>
+      <div id="missing-person-report">
+         <!-- Display reported missing person information here -->
+      </div>
+   </section>
+</body>
+</html>

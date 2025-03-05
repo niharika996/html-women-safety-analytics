@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Sexual Harassment Reporting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+        .resources {
+            margin-top: 20px;
+        }
+        .resources a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .resources a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Report Street Sexual Harassment</h1>
+        <form action="/submit-report" method="post">
+            <div class="form-group">
+                <label for="name">Your Name (optional):</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="location">Location of Incident:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date of Incident:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description of Incident:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit Report</button>
+            </div>
+        </form>
+        <div class="resources">
+            <h2>Resources and Support</h2>
+            <p>For immediate assistance, please contact:</p>
+            <ul>
+                <li><a href="tel:+1234567890">Emergency Hotline: +1 234 567 890</a></li>
+                <li><a href="https://www.example.com/help">Local Support Services</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

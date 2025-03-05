@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Distribution - Location</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            color: #d32f2f; /* Red color for heading */
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gender Distribution - [Location]</h2>
+        <p>Below is a visual representation of the gender distribution for the reported incidents in [Location].</p>
+        <canvas id="genderChart"></canvas>
+    </div>
+
+    <script>
+        // Gender distribution data for a specific location
+        const data = {
+            labels: ['Female', 'Male', 'Non-binary', 'Prefer not to say'],
+            datasets: [{
+                data: [60, 25, 10, 5], // Sample data: 60% Female, 25% Male, 10% Non-binary, 5% Prefer not to say
+                backgroundColor: [
+                    '#e57373', // Red
+                    '#64b5f6', // Blue
+                    '#4caf50', // Green
+                    '#ffb74d'  // Orange
+                ],
+                borderColor: '#fff',
+                borderWidth: 1
+            }]
+        };
+
+        // Create the pie chart
+        const ctx = document.getElementById('genderChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (context.parsed !== null) {
+                                    label += ': ' + context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

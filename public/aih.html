@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HistoArt</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Ffairgaze.com%2Fgeneralnews%2Fsignificance-of-cultural-heritage-of-india.html&psig=AOvVaw0SeqjxX2vebMiPBvxNyl9f&ust=1737696161544000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwjGruHkjIuLAxWHomMGHTk-DMYQjRx6BAgAEBc') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333333;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff6e64;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        textarea {
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ff758c;
+            border-radius: 8px;
+            resize: none;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #ff6e64;
+            box-shadow: 0 0 8px rgba(255, 110, 100, 0.5);
+        }
+        button {
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #ff6e64;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff758c;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .banner {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .banner img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <img src="https://via.placeholder.com/700x300?text=Welcome+to+HistoArt" alt="HistoArt Banner">
+        </div>
+        <h1>HistoArt</h1>
+        <p>Turn your historical stories into breathtaking concept art! Just describe your scene below.</p>
+        <form method="POST">
+            <label for="prompt" style="font-weight: bold;">Describe Your Story or Scene:</label>
+            <textarea id="prompt" name="prompt" rows="4" placeholder="E.g., A grand medieval castle during sunrise surrounded by bustling villagers." required></textarea>
+            <button type="submit">Generate Concept Art</button>
+        </form>
+        {% if art_url %}
+        <div class="result">
+            <h2 style="color: #ff6e64;">Generated Concept Art:</h2>
+            <img src="{{ art_url }}" alt="Generated Concept Art">
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
